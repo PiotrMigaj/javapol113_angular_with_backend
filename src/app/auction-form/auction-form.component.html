@@ -1,0 +1,48 @@
+<div #ref *ngIf="notification" class="notification">
+  {{notification}}
+</div>
+
+<mat-card>
+  <mat-card-title>Auction Form</mat-card-title>
+  <mat-card-subtitle>Add new Auction</mat-card-subtitle>
+  <mat-card-content class="auctions-form-content">
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Product Id:</mat-label>
+      <input type="number" matInput placeholder="Product Id:" [(ngModel)]="createAuctionRequest.productId">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Title:</mat-label>
+      <input type="text" matInput placeholder="Title:" [(ngModel)]="createAuctionRequest.title">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Initial price:</mat-label>
+      <input type="number" matInput placeholder="Initial price:" [(ngModel)]="createAuctionRequest.initialPrice">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Date of starting the auction:</mat-label>
+      <input type="date" matInput placeholder="Date of starting the auction:" [(ngModel)]="createAuctionRequest.startDateTime">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Duration of auction in days:</mat-label>
+      <input type="number" matInput placeholder="Duration of auction in days:" [(ngModel)]="createAuctionRequest.durationInDays">
+    </mat-form-field>
+
+    <div class="form-button-row">
+      <button class="submit-button" type="button" mat-button mat-raised-button (click)="sendProduct()">
+        Submit
+      </button>
+      <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+
+    <mat-card-footer>
+      <mat-progress-bar *ngIf="sendingProduct" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

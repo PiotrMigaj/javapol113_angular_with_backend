@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Auction } from '../model/auction';
+import { Auction, CreateAuctionRequest } from '../model/auction';
 import { PageResponse } from '../model/pagination';
 
 @Injectable({
@@ -23,5 +23,15 @@ export class AuctionService {
       .get<PageResponse<Auction>>('http://localhost:8080/api/auction', {
         params: params
       });
+  }
+
+  getDefaultCreateAuctionRequest():CreateAuctionRequest{
+    return {
+      productId: null,
+      title: '',
+      initialPrice: 0,
+      startDateTime: '',
+      durationInDays: 0
+    }
   }
 }

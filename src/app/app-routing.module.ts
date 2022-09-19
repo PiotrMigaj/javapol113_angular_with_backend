@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuctionFormComponent } from './auction-form/auction-form.component';
 import { AllAuctionListComponent } from './auction-list/all-auction-list/all-auction-list.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"users", component: UserComponent},
   {path:"register", component: RegistrationFormComponent},
   {path:"auction", component: AllAuctionListComponent},
+  {path:"auction/form", component: AuctionFormComponent},
   {path:"product/details/:productId", component: ProductDetailsComponent},
 ];
 
