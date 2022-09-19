@@ -13,6 +13,8 @@ export class AuctionService {
 
   }
 
+  private AUCTION_BASE_URL:string = "http://localhost:8080/api/auction/";
+
   getAuctionsFromBackend(page: number, size: number): Observable<PageResponse<Auction>> {
     const params = {
       page: page,
@@ -20,7 +22,7 @@ export class AuctionService {
     }
 
     return this.httpClient
-      .get<PageResponse<Auction>>('http://localhost:8080/api/auction', {
+      .get<PageResponse<Auction>>(this.AUCTION_BASE_URL, {
         params: params
       });
   }
@@ -33,5 +35,9 @@ export class AuctionService {
       startDateTime: '',
       durationInDays: 0
     }
+  }
+
+  public sendAuctionToBackend(createAuctionRequest: CreateAuctionRequest):Observable<Auction>{
+    return this.httpClient.post<Auction>(this.AUCTION_BASE_URL,createAuctionRequest);
   }
 }
