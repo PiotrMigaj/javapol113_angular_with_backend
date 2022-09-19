@@ -7,7 +7,7 @@ import { ProductsFormComponent } from './products-form/products-form.component';
 import { UserProductsListComponent } from './products-list/user-products-list/user-products-list.component';
 import { ProductsComponent } from './products/products.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {path:"", redirectTo: "home", pathMatch: "full"},
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"products/form", component: ProductsFormComponent},
   {path:"products", component: ProductsComponent},
   {path:"products/user", component: UserProductsListComponent},
-  {path:"users", component: UserListComponent},
+  {path:"users", component: UserComponent},
   {path:"register", component: RegistrationFormComponent},
   {path:"auction", component: AllAuctionListComponent},
   {path:"product/details/:productId", component: ProductDetailsComponent},

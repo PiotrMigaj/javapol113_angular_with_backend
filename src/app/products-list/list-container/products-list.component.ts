@@ -54,6 +54,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   showProductDetails(productId: number): void {
-    this.router.navigate([`/product/details/${productId}`])
+    // this.router.navigate([`/product/details/${productId}`])
+    this.router.navigate(['/product/details',productId])
   }
 }

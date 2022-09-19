@@ -1,0 +1,23 @@
+<div class="users-container">
+    <div class="users-grid" cols="12" rowHeight="24px">
+      <!-- Pasek na którym wyświetlimy guzik -->
+      <div class="grid-row">
+        <div class="users-grid-offset-stretch">
+  
+        </div>
+        <div class="users-grid-aligned-right">
+          <button mat-raised-button mat-icon-button class="user-btn-add" [routerLink]="['../register']">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Tutaj umieścimy tabelkę z produktami -->
+      <div class="grid-row">
+        <div class="users-content-tile">
+          <app-user-list></app-user-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,38 @@
+.user-btn-add{
+    background-color: var(--gopher-color);
+    color: black;
+  }
+  
+  app-user-list {
+    width: 100%;
+    /* margin: 10px; */
+  }
+  
+  .users-content-tile{
+    width: 100%;
+    height: 100%;
+    /* margin: 10px; */
+  }
+  
+  .users-grid{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .users-grid-aligned-right{
+    right: 0;
+    margin: 8px 32px;
+  }
+  
+  .grid-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .users-grid-offset-stretch{
+    display: flex;
+    flex-grow: 1;
+    /* width: 100%; */
+  }
+  
