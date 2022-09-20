@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuctionService } from '../auction-service/auction.service';
 import { CreateAuctionRequest } from '../model/auction';
 import { TMP_PRODUCT_ID } from '../model/constants';
@@ -22,9 +22,11 @@ export class AuctionFormComponent implements OnInit {
   constructor(private renderer: Renderer2,
               private router: Router,
               private auctionService: AuctionService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private route:ActivatedRoute) {
     this.createAuctionRequest = auctionService.getDefaultCreateAuctionRequest()
-    this.createAuctionRequest.productId = TMP_PRODUCT_ID;
+    this.createAuctionRequest.productId = Number(this.route.snapshot.paramMap.get('productId'));
+    console.log(`productId from auction form: ${this.createAuctionRequest.productId}`);
   }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class AuctionFormComponent implements OnInit {
 
   sendAuction(): void {
     this.sendingAuction = true;
+    console.log(this.createAuctionRequest);
     this.auctionService.sendAuctionToBackend(this.createAuctionRequest)
       .subscribe({ // promise
         next: (data) => {
@@ -41,8 +44,7 @@ export class AuctionFormComponent implements OnInit {
             horizontalPosition: 'start',
             duration: 5000
           })
-
-          this.router.navigate(['/auction'])
+          this.router.navigate(['/product/details',this.createAuctionRequest.productId])
           console.log(data)
         },
         error: (error) => {

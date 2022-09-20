@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 import { Auction } from 'src/app/model/auction';
 
 
@@ -20,10 +21,11 @@ export class AuctionListComponent implements OnInit {
   ]
   @Input("auctionList") auctionList: Auction[] = [];
   @Input() totalElements: number = 0;
+  @Input() loadingList: boolean = false;
 
   @Output() pageChanged = new EventEmitter<PageEvent>;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.changePage({
@@ -34,7 +36,7 @@ export class AuctionListComponent implements OnInit {
   }
 
   auctionDetails(auctionId: number): void {
-    // TODO: na potem
+    this.router.navigate(['/product/details',auctionId])
   }
 
   changePage(pageEvent?: PageEvent) {

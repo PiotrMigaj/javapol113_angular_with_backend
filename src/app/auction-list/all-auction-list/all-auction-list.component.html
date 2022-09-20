@@ -1,7 +1,6 @@
 <app-auction-list
   [auctionList]="auctionPageResponse.content"
+  [loadingList]="loadingList"
   [totalElements]="auctionPageResponse.totalElements"
   (pageChanged)="loadChangedPage($event)">
-
-  <!-- MVP -->
 </app-auction-list>

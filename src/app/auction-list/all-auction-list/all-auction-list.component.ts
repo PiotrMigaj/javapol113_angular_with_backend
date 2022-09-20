@@ -15,6 +15,8 @@ export class AllAuctionListComponent implements OnInit {
     totalElements: 0
   }
 
+  loadingList: boolean = false;
+
   constructor(private auctionService: AuctionService) {
 
   }
@@ -23,11 +25,12 @@ export class AllAuctionListComponent implements OnInit {
   }
 
   getAuctionsFromBackend(page: number, size: number): void {
+    this.loadingList = true;
     this.auctionService.getAuctionsFromBackend(page, size)
     .subscribe({
       next: (data) =>{
+        this.loadingList = false;
         console.log(data)
-
         this.auctionPageResponse = data;
       },
       error: (error) => {

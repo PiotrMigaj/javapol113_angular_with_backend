@@ -1,4 +1,4 @@
-<!-- <div #ref *ngIf="notification" class="notification">
+<div #ref *ngIf="notification" class="notification">
   {{notification}}
 </div>
 
@@ -6,11 +6,6 @@
   <mat-card-title>Auction Form</mat-card-title>
   <mat-card-subtitle>Add new Auction</mat-card-subtitle>
   <mat-card-content class="auctions-form-content">
-
-    <mat-form-field appearance="legacy">
-      <mat-label>Product Id:</mat-label>
-      <input type="number" matInput placeholder="Product Id:" [(ngModel)]="createAuctionRequest.productId">
-    </mat-form-field>
 
     <mat-form-field appearance="legacy">
       <mat-label>Title:</mat-label>
@@ -23,11 +18,15 @@
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Date of starting the auction:</mat-label>
-      <input type="date" matInput placeholder="Date of starting the auction:" [(ngModel)]="createAuctionRequest.startDateTime">
+      <mat-label>Start date of the auction</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="createAuctionRequest.startDateTime">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="legacy" class="duration-in-days">
       <mat-label>Duration of auction in days:</mat-label>
       <input type="number" matInput placeholder="Duration of auction in days:" [(ngModel)]="createAuctionRequest.durationInDays">
     </mat-form-field>
@@ -45,6 +44,6 @@
       <mat-progress-bar *ngIf="sendingAuction" mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card-content>
-</mat-card> -->
+</mat-card>
 
-<p>FDJfhskdfsdfkjshd </p>
+
