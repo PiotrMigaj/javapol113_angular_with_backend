@@ -11,6 +11,7 @@ import { ProductsService } from '../products-service/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productDetails: ProductDetails;
+  loadingDetailsButton: boolean = false;
 
   constructor(
     private productsService: ProductsService,

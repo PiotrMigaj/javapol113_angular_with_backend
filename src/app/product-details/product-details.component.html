@@ -52,7 +52,7 @@
     </div>
   </div>
   <div class="product-auction-info-row">
-    <app-auction-list [auctionList]="productDetails.auctions" [totalElements]="productDetails.auctions.length">
+    <app-auction-list [auctionList]="productDetails.auctions" [totalElements]="productDetails.auctions.length" [loadingDetailsButton]="loadingDetailsButton" >
     </app-auction-list>
   </div>
   <div class="product-offers-row">

@@ -16,6 +16,7 @@ export class AllAuctionListComponent implements OnInit {
   }
 
   loadingList: boolean = false;
+  loadingDetailsButton: boolean = true;
 
   constructor(private auctionService: AuctionService) {
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Auction } from 'src/app/model/auction';
@@ -9,23 +9,19 @@ import { Auction } from 'src/app/model/auction';
   templateUrl: './auction-list.component.html',
   styleUrls: ['./auction-list.component.css']
 })
-export class AuctionListComponent implements OnInit {
-  displayedColumns = [
-    "auction-id",
-    "product-id",
-    "auction-title",
-    "initial-price",
-    "auction-start-time",
-    "auction-end-time",
-    "auction-details-btn"
-  ]
+export class AuctionListComponent implements OnInit, OnChanges {
+  displayedColumns:string[] = [];
+
+
   @Input("auctionList") auctionList: Auction[] = [];
   @Input() totalElements: number = 0;
   @Input() loadingList: boolean = false;
+  @Input() loadingDetailsButton: boolean|null = null;
 
   @Output() pageChanged = new EventEmitter<PageEvent>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+  }
 
   ngOnInit(): void {
     this.changePage({
@@ -33,7 +29,37 @@ export class AuctionListComponent implements OnInit {
       pageIndex: 0,
       length: 0
     })
+    this.setDisplayDefColumnsArray();
   }
+
+  private setDisplayDefColumnsArray():void{
+    if(this.loadingDetailsButton===true){
+      this.displayedColumns = [
+        "auction-id",
+        "product-id",
+        "auction-title",
+        "initial-price",
+        "auction-start-time",
+        "auction-end-time",
+        "auction-details-btn"
+      ]
+    }
+    if(this.loadingDetailsButton===false){
+      this.displayedColumns = [
+        "auction-id",
+        "product-id",
+        "auction-title",
+        "initial-price",
+        "auction-start-time",
+        "auction-end-time"
+      ]
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
+  
 
   auctionDetails(auctionId: number): void {
     this.router.navigate(['/product/details',auctionId])
