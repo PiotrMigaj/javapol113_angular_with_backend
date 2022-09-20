@@ -21,9 +21,9 @@ export class AuctionListComponent implements OnInit, OnChanges, AfterViewInit  {
   @Output() pageChanged = new EventEmitter<PageEvent>;
 
   constructor(private router: Router,private cdr: ChangeDetectorRef) { 
+    
   }
   ngAfterViewInit(): void {
-    this.cdr.detectChanges();
   }
 
   ngOnInit(): void {
@@ -60,7 +60,6 @@ export class AuctionListComponent implements OnInit, OnChanges, AfterViewInit  {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
   }
   
 
