@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Auction } from 'src/app/model/auction';
@@ -9,7 +9,7 @@ import { Auction } from 'src/app/model/auction';
   templateUrl: './auction-list.component.html',
   styleUrls: ['./auction-list.component.css']
 })
-export class AuctionListComponent implements OnInit, OnChanges {
+export class AuctionListComponent implements OnInit, OnChanges, AfterViewInit  {
   displayedColumns:string[] = [];
 
 
@@ -20,7 +20,10 @@ export class AuctionListComponent implements OnInit, OnChanges {
 
   @Output() pageChanged = new EventEmitter<PageEvent>;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router,private cdr: ChangeDetectorRef) { 
+  }
+  ngAfterViewInit(): void {
+    this.cdr.detectChanges();
   }
 
   ngOnInit(): void {
