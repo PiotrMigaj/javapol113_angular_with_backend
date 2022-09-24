@@ -18,10 +18,10 @@ export class AuctionListComponent implements OnInit, OnChanges, AfterViewInit  {
   @Input() loadingList: boolean = false;
   @Input() loadingDetailsButton: boolean|null = null;
 
-  @Output() pageChanged = new EventEmitter<PageEvent>;
+  @Output() pageChanged = new EventEmitter<PageEvent>();
 
-  constructor(private router: Router,private cdr: ChangeDetectorRef) { 
-    
+  constructor(private router: Router,private cdr: ChangeDetectorRef) {
+
   }
   ngAfterViewInit(): void {
   }
@@ -61,7 +61,7 @@ export class AuctionListComponent implements OnInit, OnChanges, AfterViewInit  {
 
   ngOnChanges(changes: SimpleChanges): void {
   }
-  
+
 
   auctionDetails(auctionId: number): void {
     this.router.navigate(['/product/details',auctionId])
