@@ -31,6 +31,15 @@
       <input type="number" matInput placeholder="Duration of auction in days:" [(ngModel)]="createAuctionRequest.durationInDays">
     </mat-form-field>
 
+    <!-- Jeśli produkt nie był wybrany -->
+    <!-- this.createAuctionRequest.productId -->
+<!-- 
+    <mat-form-field appearance="legacy" *ngIf="this.createAuctionRequest.productId">
+      <mat-label>Duration of auction in days:</mat-label>
+      <input type="number" matInput placeholder="Duration of auction in days:" [(ngModel)]="createAuctionRequest.durationInDays">
+    </mat-form-field> -->
+
+
     <div class="form-button-row">
       <button class="submit-button" type="button" mat-button mat-raised-button (click)="sendAuction()">
         Submit

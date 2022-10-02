@@ -40,6 +40,8 @@ import { AuctionService } from './auction-service/auction.service';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { UserComponent } from './user/user.component';
 import { AuctionFormComponent } from './auction-form/auction-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { AuthenticationService } from './authentication-service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { AuctionFormComponent } from './auction-form/auction-form.component';
     AllAuctionListComponent,
     ProductDetailsComponent,
     UserComponent,
-    AuctionFormComponent
+    AuctionFormComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,8 @@ import { AuctionFormComponent } from './auction-form/auction-form.component';
   providers: [
     ProductsService,
     UserServiceService,
-    AuctionService
+    AuctionService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,5 +9,13 @@ export type UserDTO = {
   id: number | null,
   login: string,
   name: string,
-  surname: string
+  surname: string,
+  roles:string[]
 }
+
+export type AuthenticationRequest = {
+  login:string;
+  pass:string;
+}
+
+
